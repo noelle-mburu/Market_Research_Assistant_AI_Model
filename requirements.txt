@@ -1,0 +1,10 @@
+requests
+ipykernel
+python-dotenv
+grok
+openai
+pydantic
+docling
+lancedb
+streamlit
+tiktoken
