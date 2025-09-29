@@ -30,6 +30,25 @@ It is a voice-enabled AI chatbot for gaming market research with real-time data 
 2. **Install dependancies**
   ```bash
    pip install -r requirements.txt
+```
+
+3. **Set up environment variables**
+Create a .env file:
+  ```bash
+GROQ_API_KEY=your_groq_api_key_here
+ngrok_token=your_ngrok_token_here
+```
+## Usage
+Option 1: Run locally
+```bash
+streamlit run app.py
+```
+
+Option 2: Run with public URL (ngrok)
+```bash
+python deploy.py
+```
+
 
 <img width="1357" height="644" alt="market_research_ai" src="https://github.com/user-attachments/assets/d2b4de38-565a-474a-af43-fb354cff3bcf" />
 
