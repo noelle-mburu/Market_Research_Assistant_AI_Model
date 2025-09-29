@@ -12,17 +12,17 @@ def deploy_app():
     # set ngrok token
     NGROK_AUTH_TOKEN = os.getenv('ngrok_token')
     if not NGROK_AUTH_TOKEN:
-        print("❌ Error: ngrok_token not found in environment variables")
+        print(" Error: ngrok_token not found in environment variables")
         return
     
     ngrok.set_auth_token(NGROK_AUTH_TOKEN)
-    print("✅ Ngrok authentication token set!")
+    print("Ngrok authentication token set!")
     
     # kill any existing ngrok tunnels
     ngrok.kill()
     
     # start Streamlit app
-    print("🚀 Starting Streamlit app...")
+    print("Starting Streamlit app...")
     process = subprocess.Popen([
         'streamlit', 'run', 'app.py', 
         '--server.port=8501',
@@ -33,19 +33,19 @@ def deploy_app():
     time.sleep(3)
     
     # start ngrok tunnel
-    print("🌐 Starting ngrok tunnel...")
+    print("Starting ngrok tunnel...")
     public_url = ngrok.connect(8501, "http")
     
     print("\n" + "="*50)
-    print("🎮 Gaming Market Research AI is running!")
-    print(f"🌐 Public URL: {public_url}")
+    print("Gaming Market Research AI is running!")
+    print(f"Public URL: {public_url}")
     print("="*50)
     
     # keep the process running
     try:
         process.wait()
     except KeyboardInterrupt:
-        print("\n🛑 Shutting down...")
+        print("\n Shutting down...")
         process.terminate()
 
 if __name__ == "__main__":
