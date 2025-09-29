@@ -32,7 +32,7 @@ load_dotenv()
 # =============================
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 if GROQ_API_KEY is None:
-    st.error("❌ 'GROQ_API_KEY' is not set in environment variables.")
+    st.error("'GROQ_API_KEY' is not set in environment variables.")
     st.stop()
 
 THEME_COLORS = {"bg": "#000000", "accent": "#00FF7F", "muted": "#111111"}
@@ -399,15 +399,15 @@ def main():
 
     # Display current data sources
     if has_valid_data():
-        st.sidebar.success("✅ Data sources loaded and ready!")
+        st.sidebar.success(" Data sources loaded and ready!")
     else:
-        st.sidebar.info("📝 Add PDFs or web search to enhance responses")
+        st.sidebar.info("Add PDFs or web search to enhance responses")
 
     # Chat history
-    st.markdown("#### 💬 Conversation")
+    st.markdown("#### Conversation")
     
     if not st.session_state.messages:
-        st.info("💡 **Tips:** Upload PDFs or use web search to enhance responses with actual data!")
+        st.info(" **Tips:** Upload PDFs or use web search to enhance responses with actual data!")
 
     for i, chat in enumerate(st.session_state.messages):
         if chat["role"] == "user":
@@ -493,7 +493,7 @@ def main():
         # Try to extract numbers for visualization
         nums = re.findall(r'\d+', latest_response)
         if len(nums) >= 2:
-            st.sidebar.header("📊 Trend Visualization")
+            st.sidebar.header("📊Trend Visualization")
             try:
                 nums = list(map(int, nums[:6]))
                 fig, ax = plt.subplots(figsize=(8, 4))
